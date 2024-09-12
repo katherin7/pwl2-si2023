@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
             $table->string('supplier_name');
+            $table->string('phone_supp');
+            $table->text('address_supp');
             $table->string('pic_name');
             $table->string('phone');
             $table->text('address');
@@ -26,6 +28,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('suppliers');
+        Schema::table('suppliers', function (Blueprint $table) {
+            //
+        });
     }
 };

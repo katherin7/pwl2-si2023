@@ -15,6 +15,13 @@ class Product extends Model
                     ->join('category_product', 'category_product.id', '=', 'products.product_category_id'); // Join
 
         return $sql;
+    }
+    protected $fillable = ['name', 'price', 'description'];
+
+    public function transaksis()
+    {
+        return $this->hasMany(Transaksi::class, 'id_product');
+    }
+    
     
     }               
-}

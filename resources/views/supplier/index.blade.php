@@ -7,13 +7,13 @@
     <title>Data Supplier</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="background: lightpink">
+<body style="background-image: url(https://blog-asset.jakmall.com/2023/12/TWICEJKT23_Poster4x5-1448x2048.png)">
 
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-12">
             <div>
-                <h3 class="text-center my-4">Katherin Supplier Database</h3>
+                <h3 class="text-center my-4" style="color: #FEE6A8">Katherin Supplier Database</h3>
                 <hr>
             </div>
             <div class="card border-0 shadow-sm rounded">

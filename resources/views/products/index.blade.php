@@ -6,13 +6,13 @@
         <title> Data Product</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="background: lightpink">
+<body style="background-image: url(https://blog-asset.jakmall.com/2023/12/TWICEJKT23_Poster4x5-1448x2048.png)">
 
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <h3 class="text-center my-4"> Katherin database uwaw</h3>
+                    <h3 class="text-center my-4" style="color: #FEE6A8"> Katherin Fanpage Database</h3>
                     <hr>
                 </div>
                 <div class="card border-0 shadow-sm rounded">
@@ -24,8 +24,9 @@
         <thead>
             <tr>
                 <th scope="col">IMAGE</th>
-                <th scope="col">TITLE</th>
+                <th scope="col">NAMA SUPPLIER</th>
                 <th scope="col">CATEGORY</th>
+                <th scope="col">TITLE</th>
                 <th scope="col">PRICE</th>
                 <th scope="col">STOCK</th>
                 <th scope="col" style="width: 20%">ACTIONS</th>
@@ -35,12 +36,13 @@
     @forelse ($products as $product)
         <tr>
             <td class="text-center">
-                <img src="{{asset('/storage/products/'.$product->image)}}" class="rounded" style="width:150px;">
+                <img src="{{$product->image}}" class="rounded" style="width:150px;">
             </td>
-            <td>{{ $product->title}}</td>
-            <td>{{ $product->product_category_name}}</td>
-            <td>{{"Rp " . number_format($product->price,2,',','-')}}</td>
-            <td>{{ $product->stock }}</td>
+            <td class="text-center">{{ $product->nama_supplier}}</td>
+            <td class="text-center">{{ $product->product_category_name}}</td>
+            <td class="text-center" >{{ $product->title}}</td>
+            <td class="text-center">{{"Rp " . number_format($product->price,2,',','-')}}</td>
+            <td class="text-center">{{ $product->stock }}</td>
             <td class="text-center">
                 <form onsubmit="return confirm('Yakin ga lu?');" action="{{ route('products.destroy', $product->id) }}" method="POST">
                     <a href="{{ route('products.show', $product->id)}}" class="btn btn-outline-primary">SHOW</a>

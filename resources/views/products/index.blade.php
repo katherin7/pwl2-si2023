@@ -38,7 +38,7 @@
             <td class="text-center">
                 <img src="{{$product->image}}" class="rounded" style="width:150px;">
             </td>
-            <td class="text-center">{{ $product->nama_supplier}}</td>
+            <td class="text-center">{{ $product->supplier_name}}</td>
             <td class="text-center">{{ $product->product_category_name}}</td>
             <td class="text-center" >{{ $product->title}}</td>
             <td class="text-center">{{"Rp " . number_format($product->price,2,',','-')}}</td>

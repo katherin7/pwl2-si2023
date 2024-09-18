@@ -26,8 +26,12 @@
                         <th scope="col">ID PRODUK</th>
                         <th scope="col">JUMLAH PEMBELIAN</th>
                         <th scope="col">NAMA KASIR</th>
+                        <th scope="col">NAMA PRODUK</th>
+                        <th scope="col">KATEGORI PRODUK</th>
                         <th scope="col">TANGGAL TRANSAKSI</th>
                         <th scope="col">DISKON</th>
+                        <th scope="col">HARGA</th>
+                        <th scope="col">TOTAL HARGA</th>
                         <th scope="col" style="width: 20%">ACTIONS</th>
                     </tr>
                 </thead>
@@ -37,8 +41,32 @@
                             <td class="text-center">{{ $transaksi->id_product }}</td>
                             <td class="text-center">{{ $transaksi->jumlah_pembelian }}</td>
                             <td class="text-center">{{ $transaksi->nama_kasir }}</td>
+                            <td class="text-center">
+                                {{ $transaksi->product ? $transaksi->product->title : 'Produk tidak ditemukan' }}
+                            </td>
+                            <td class="text-center">
+                                {{ $transaksi->product ? $transaksi->product->category : 'Kategori tidak ditemukan' }}
+                            </td>
                             <td class="text-center">{{ $transaksi->tanggal_transaksi }}</td>
                             <td class="text-center">{{ $transaksi->diskon }}%</td>
+                            <td class="text-center">
+                                {{ $transaksi->product ? $transaksi->product->price: 'Harga tidak tersedia' }}
+                            </td>
+                            <td class="text-center">
+                                @if($transaksi->product)
+                                    @php
+                                        // Menghitung total harga sebelum diskon
+                                        $totalHarga = $transaksi->product->price * $transaksi->jumlah_pembelian;
+                                        // Menghitung nilai diskon
+                                        $diskon = $totalHarga * ($transaksi->diskon / 100);
+                                        // Menghitung total setelah diskon
+                                        $totalSetelahDiskon = $totalHarga - $diskon;
+                                    @endphp
+                                    {{ number_format($totalSetelahDiskon, 2) }}
+                                @else
+                                    Harga tidak tersedia
+                                @endif
+                            </td>
                             <td class="text-center">
                                 <form onsubmit="return confirm('Yakin ingin menghapus transaksi ini?');" action="{{ route('transaksis.destroy', $transaksi->id) }}" method="POST">
                                     <a href="{{ route('transaksis.show', $transaksi->id)}}" class="btn btn-outline-primary">SHOW</a>

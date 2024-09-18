@@ -29,14 +29,7 @@ return new class extends Migration
             $table->timestamps();
         });
     
-        Schema::create('supplier', function (Blueprint $table){
-            $table->id();
-            $table->string('supplier_name');
-            $table->string('pic_supplier');
-            $table->timestamps();
-        });
     }
-
     /**
      * Reverse the migrations.
      */

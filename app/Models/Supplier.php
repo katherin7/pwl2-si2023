@@ -12,13 +12,9 @@ class Supplier extends Model
     public function get_supplier()
     {
     // Mengambil informasi supplier_name dan picsupplier
-    $sql = $this->select("supplier_name", "pic_name", );
+    $sql = $this->select("*");
 
     return $sql;
     }
-    protected $fillable = [
-        'supplier_name',
-        'picsupplier',
-        'phone_supp',  // Tambahkan kolom baru di sini
-    ];
+
 }

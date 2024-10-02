@@ -27,7 +27,7 @@
                 <hr>
                 <p>Supplier : {{ $product->supplier_name}}</p>
                 <hr>
-                <p>{{ "Rp" . number_format($product->price,2,',',',''.')}}</p>
+                <p>{{ "Rp" . number_format($product->price,2,',',',')}}</p>
                 <code>
                     <p>{!! $product->description !!}</p>
                 </code>

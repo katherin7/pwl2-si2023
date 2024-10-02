@@ -9,13 +9,13 @@
 <body style="background-image: url(https://blog-asset.jakmall.com/2023/12/TWICEJKT23_Poster4x5-1448x2048.png)">
 
     <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row" >
+            <div class="col-md-12" >
                 <div>
                     <h3 class="text-center my-4" style="color: #FEE6A8"> Katherin Fanpage Database</h3>
                     <hr>
                 </div>
-                <div class="card border-0 shadow-sm rounded">
+                <div class="card border-0 shadow-sm rounded" style="padding-top: 0px;padding-bottom: 30px;">
                     <div class="card-body">
                         <a href="{{ route('products.create')}}" class="btn btn-md btn-success mb-3">ADD PRODUCT</a>
                     </div>

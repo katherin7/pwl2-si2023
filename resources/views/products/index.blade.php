@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title> Data Product</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body style="background-image: url(https://blog-asset.jakmall.com/2023/12/TWICEJKT23_Poster4x5-1448x2048.png)">
 
@@ -36,17 +36,17 @@
     @forelse ($products as $product)
         <tr>
             <td class="text-center">
-                <img src="{{asset('/storage/images/'.$product->image) }}" class="rounded" style="width:150px;">
+                <img src="{{asset('/storage/images/'.$product->image) }}" class="rounded" style="width:150px; height: 230px;">
             </td>
             <td class="text-center">{{ $product->supplier_name}}</td>
             <td class="text-center">{{ $product->product_category_name}}</td>
             <td class="text-center" >{{ $product->title}}</td>
-            <td class="text-center">{{"Rp " . number_format($product->price,2,',','-')}}</td>
+            <td class="text-center">{{"Rp " . number_format($product->price,2,'.')}}</td>
             <td class="text-center">{{ $product->stock }}</td>
             <td class="text-center">
                 <form onsubmit="return confirm('Yakin ga lu?');" action="{{ route('products.destroy', $product->id) }}" method="POST">
                     <a href="{{ route('products.show', $product->id)}}" class="btn btn-outline-primary">SHOW</a>
-                    <a href="{{ route('products.show', $product->id)}}" class="btn btn-outline-primary">EDIT</a>
+                    <a href="{{ route('products.edit', $product->id)}}" class="btn btn-outline-primary">EDIT</a>
                     @csrf
                     @method('DELETE')
 
@@ -61,11 +61,14 @@
         @endforelse
         </tbody>
         </table>
+        
         {{ $products->links()}}
+
                 </div>
             </div>
         </div>
     </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
